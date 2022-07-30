@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .card-title{
+            background-color:#ff0000;
+            width: 100px;
+            
+        }
+        .container{
+            background-color:aqua;
+            width: 300px;
+            height:100px;
+            transition: 1.4s;
+        }
+        .diphai{
+            /* transform:translateX(200px) */
+            animation:sangphai 1s forwards;
+        }
+        @-webkit-keyframes sangphai{
+            0%{transform: translateX(0);
+                margin-top: 0px;opacity:1;}
+            50% {transform:translatex(400px);
+                margin-top: 0px;opacity:1;}
+            100%{transform:translateX(400px);
+                margin-top: 200px;opacity:0;}
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn btn-info" id="n1">cam vao nut</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-sn-4">
+                <div class="card-body">
+                    <h5 class="card-title">Text header</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                    <button class="btn btn-block btn-outline-info" id="n1">View Detail</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="b11.js"></script>
+</body>
+</html>

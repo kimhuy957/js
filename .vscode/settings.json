@@ -1,0 +1,30 @@
+{
+    "liveServer.settings.port": 2105,
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs":"active",
+    "workbench.colorCustomizations": {
+
+        
+    },
+    "editor.guides.bracketPairs": true,
+    "cSpell.languageSettings": [
+    
+    ],
+    "bracket-pair-colorizer-2.colors": [
+
+        "#bcd81d",
+         "Orchid",
+        "LightSkyBlue",
+         "#C76F38",
+        "#A338C7",
+        "#5CC738",
+        
+    ],
+    "editor.formatOnSave": true,
+
+
+
+ 
+}
