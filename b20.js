@@ -1,5 +1,7 @@
 document,addEventListener('DOMContentLoaded',function(){
     var nut =document.querySelectorAll('.chuyentrang ul li');
+    var slides=this.document.querySelectorAll('.cacslide ul li');
+     console.log(slides);
     // nut tra ve mot nut 
     for (var i=0;i<nut.length;i++){
         nut[i].addEventListener('click',function(){
@@ -16,7 +18,12 @@ document,addEventListener('DOMContentLoaded',function(){
                 //  console.log('phan tu nut kich hoat la '+nutkichhoat);
             }
             //het vong lap nay thi thi bien i= so thu tu
-            console.log("vi tri cua phan thu cac class la "+vt)
+            console.log("vi tri cua phan thu cac class la "+vt);
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+                slides[vt].classList.add('active');
+            }
+
         })
     }
 })
