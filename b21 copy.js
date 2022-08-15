@@ -7,3 +7,6 @@ khoi.addEventListener('webkitAnimationEnd',function(){
 nut.addEventListener('click',function(){
     khoi.classList.add('chuyendong');
 })
+if(nut==null){
+    console.log("khong co nut nao");
+}

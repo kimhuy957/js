@@ -1,4 +1,8 @@
-{
+{        
+
+
+
+
     "liveServer.settings.port": 2105,
     "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
     "editor.bracketPairColorization.enabled": true,
@@ -20,11 +24,10 @@
          "#C76F38",
         "#A338C7",
         "#5CC738",
-        
     ],
     "editor.formatOnSave": true,
-
-
-
- 
+    
+    "editor.fontFamily": "Fira Code",
+"editor.fontLigatures": true,
+      
 }
