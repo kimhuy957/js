@@ -61,29 +61,35 @@ opacity: 0;
     color:aquamarine;
 }
 .bienmatkhian{
-animation: ani1 1s forwards;
+animation: ani1 1s ease-in-out forwards;
+
 }
 @-webkit-keyframes ani1{
-    from{
-        transform: scale(1);
-        opacity: 1;
+    0%{
+        transform: translateX(0px);
+        
     }
-    to{
-        transform:scale(2);
-        opacity: 0;
+    40%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(100%);
+        
     }
 }
 .divaokhian{
-animation: ani2 2s forwards;
+animation: ani2 0.6s ease-in-out forwards;
+animation-delay: 0.4s;
 }
 @-webkit-keyframes ani2{
-    from{
-        transform: scale(0.5);
-        opacity: 0;
+    0%{
+        transform: translateX(-100%);
+        
     }
-    to{
-        transform:scale(1);
-        opacity: 1;
+
+    100%{
+        transform: translateX(0%);
+        
     }
 }
 .bienmatkhianperv{
@@ -100,7 +106,7 @@ animation: ani2 2s forwards;
     }
 }
 .divaokhianperv{
-    animation: ani2_nguoc2 1s forwards;
+    animation: ani2_nguoc2 2s forwards;
 }
 @-webkit-keyframes ani2_nguoc2{
     from{

@@ -1,11 +1,8 @@
-var x=5;
-var  ketqua='';
+// var x = 5;
+// var ketqua = "";
 
-
-ketqua=(x<100)?"nho hon 100":"lon hon hoac 100";
-console.log(ketqua);
-
-
+// ketqua = x < 100 ? "nho hon 100" : "lon hon hoac 100";
+// console.log(ketqua);
 
 var nutphai = document.querySelector(".nuts b.phai"),
   nuttrai = document.querySelector(".nuts b.trai"),
@@ -21,63 +18,80 @@ function xacdinh2slide(nutnao) {
   trangthai = "dangchuyendong";
   var trangthaicua2chuyendong = 0;
   var phantuhientai = slides[chisohientai];
-  if (nutnao == "trai") {
-    console.log("hihi1");
-    if (chisohientai > 0) {
-      //chua den cuoi
-      chisohientai--;
-    } else {
-      //la phantu cuoi cung
-      chisohientai = soluongslide - 1;
-    }
-   
-  } else if (nutnao == "phai") {
+  // if (nutnao == "trai") {
+  //   console.log("hihi1");
+  //   // if (chisohientai > 0) {
+  //   //   //chua den cuoi
+  //   //   chisohientai--;
+  //   // } else {
+  //   //   //la phantu cuoi cung
+  //   //   chisohientai = soluongslide - 1;
+  //   // }
+  chisohientai=(chisohientai>0)?(chisohientai-1):(soluongslide-1);
 
-    console.log("hihi2");
-    if (chisohientai < soluongslide - 1) {
-          //chua den cuoi
-          chisohientai++;
-        } else {
-          //la phantu cuoi cung
-          chisohientai = 0;
-        }
-        
-  }
+  // } else if (nutnao == "phai") {
+
+  //   console.log("hihi2");
+  //   // if (chisohientai < soluongslide - 1) {
+  //   //       //chua den cuoi
+  //   //       chisohientai++;
+  //   //     } else {
+  //   //       //la phantu cuoi cung
+  //   //       chisohientai = 0;
+  //   //     }
+  chisohientai=(chisohientai<soluongslide-1)?(chisohientai+1):0;
+  // }
+  chisohientai =
+    nutnao == "trai"
+      ? chisohientai > 0
+        ? chisohientai - 1
+        : soluongslide - 1
+      : chisohientai < soluongslide - 1
+      ? chisohientai + 1
+      : 0;
   var phantutieptheo = slides[chisohientai];
-    var xulyhientaiketthuc = function () {
-      console.log("slide hientai da xong roi1");
-      this.classList.remove("dangxem");
-      if(nutnao == "trai"){
-        this.classList.remove("bienmatkhianperv");
-      }
-      else if(nutnao == "phai"){
-        this.classList.remove("bienmatkhian");
-      }
-      trangthaicua2chuyendong++;
-      if (trangthaicua2chuyendong == 2) {
-        trangthai = "dangdungyen";
-      }
-      console.log(slides[chisohientai]);
+  var xulyhientaiketthuc = function () {
+    console.log("slide hientai da xong roi1");
+    this.classList.remove("dangxem");
+    if (nutnao == "trai") {
+      this.classList.remove("bienmatkhianperv");
+    } else if (nutnao == "phai") {
+      this.classList.remove("bienmatkhian");
     }
-
-    var xulytieptheoketthuc = function () {
-      console.log("slide tiep theo da xong roi");
-      if(nutnao == "trai"){
-        this.classList.remove("divaokhianperv");
-      }
-      else if(nutnao == "phai"){
-        this.classList.remove("divaokhian");
-      }
-      
-      this.classList.add("dangxem");
-      trangthaicua2chuyendong++;
-      if (trangthaicua2chuyendong == 2) {
-        trangthai = "dangdungyen";
-      }
+    trangthaicua2chuyendong++;
+    if (trangthaicua2chuyendong == 2) {
+      trangthai = "dangdungyen";
     }
+    console.log(slides[chisohientai]);
+  };
 
-    phantutieptheo.addEventListener("webkitAnimationEnd", xulytieptheoketthuc);
-    phantuhientai.addEventListener("webkitAnimationEnd", xulyhientaiketthuc);
+  var xulytieptheoketthuc = function () {
+    console.log("slide tiep theo da xong roi");
+    // if(nutnao == "trai"){
+    //   this.classList.remove("divaokhianperv");
+    // }
+    // else if(nutnao == "phai"){
+    //   this.classList.remove("divaokhian");
+    // }
+    //{
+    //cach1 co the bug 
+     //nutnao= (nutnao=="trai")?(this.classList.remove("divaokhianperv")):(this.classList.remove("divaokhian"));
+    //cach2 ko bug
+    //this.classList.remove((nutnao=="trai")?("divaokhianperv"):("divaokhian"));
+    //cach2 khac cach tren
+    ketqua=(nutnao=="trai")?("divaokhianperv"):("divaokhian");
+    this.classList.remove(ketqua);
+    //}
+    this.classList.add("dangxem");
+    trangthaicua2chuyendong++;
+    // if (trangthaicua2chuyendong == 2) {
+    //   trangthai = "dangdungyen";
+    // }
+    trangthai=(trangthaicua2chuyendong==2)?("dangdungyen"):(trangthai);
+  };
+
+  phantutieptheo.addEventListener("webkitAnimationEnd", xulytieptheoketthuc);
+  phantuhientai.addEventListener("webkitAnimationEnd", xulyhientaiketthuc);
   if(nutnao=="trai"){
         phantuhientai.classList.add("bienmatkhianperv");
     phantutieptheo.classList.add("divaokhianperv");
@@ -86,6 +100,8 @@ function xacdinh2slide(nutnao) {
         phantuhientai.classList.add("bienmatkhian");
     phantutieptheo.classList.add("divaokhian");
   }
+  phantuhientai.classList.add((nutnao=="trai")?('bienmatkhianperv'):('bienmatkhian'));
+  phantutieptheo.classList.add((nutnao=="trai")?('divaokhianperv'):('divaokhian'));
 }
 //goi su kien click vao nut phai
 var chuyenslidechonutphai = function () {
@@ -180,3 +196,5 @@ var chuyenslidechonuttrai = function () {
 };
 nuttrai.addEventListener("click", chuyenslidechonuttrai);
 nutphai.addEventListener("click", chuyenslidechonutphai);
+
+file+options+proo+"bỏ tích check spelling..."
